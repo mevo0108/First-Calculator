@@ -1,30 +1,39 @@
 package view;
 
 
-import java.io.File;
 import java.util.Observable;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 
-public class MainWindowLogic extends Observable{
+public class MainWindowLogic extends Observable {
 
 	@FXML
 	Label resultLabel;
+	@FXML
+	private Label inputLabel;
+	public boolean plusOrMinus = true;
 
-	public void print() {
-		System.out.println("helloWolrd");
-	}
-
-	public void generate() {
+	@FXML
+	private void handleButtonClicked(ActionEvent event) {
+		String buttonText = ((Button) event.getSource()).getText();
 		setChanged();
-		notifyObservers();
+		notifyObservers(buttonText);
 	}
 
-	public void display(int result) {
-
-		resultLabel.textProperty().set(""+result);
+	public void displayInput(String input) {
+		inputLabel.setText(input);
 	}
 
+	public void displayResult(double result) {
+		resultLabel.setText(String.valueOf(result));
+		clearInput();
+	}
+
+	public void clearInput() {
+		inputLabel.setText("");
+	}
 }

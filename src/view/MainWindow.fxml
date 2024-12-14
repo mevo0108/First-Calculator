@@ -6,14 +6,16 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="464.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowLogic">
+<BorderPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowLogic">
    <top>
       <MenuBar prefHeight="17.0" prefWidth="293.0" BorderPane.alignment="CENTER">
         <menus>
@@ -35,15 +37,8 @@
         </menus>
       </MenuBar>
    </top>
-   <bottom>
-      <Label fx:id="resultLabel" alignment="CENTER" graphicTextGap="6.0" prefHeight="67.0" prefWidth="349.0" text="result" BorderPane.alignment="BOTTOM_LEFT">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-   </bottom>
    <center>
-      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="360.0" prefWidth="277.0" BorderPane.alignment="CENTER_RIGHT">
+      <GridPane fx:id="buttonsGrid" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="360.0" prefWidth="277.0" BorderPane.alignment="CENTER_RIGHT">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="90.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="90.0" />
@@ -57,70 +52,138 @@
             <RowConstraints maxHeight="-Infinity" minHeight="90.0" prefHeight="10.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="1" GridPane.rowIndex="1">
+            <Button fx:id="one_btn" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="two_btn" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="118.0" text="4" GridPane.rowIndex="2">
+            <Button fx:id="four_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="118.0" text="4" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="five_btn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="144.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="eight_btn" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="144.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="7" GridPane.rowIndex="3">
+            <Button fx:id="seven_btn" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="7" GridPane.rowIndex="3">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="165.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button fx:id="nine_btn" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="165.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button fx:id="six_btn" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="three_btn" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="143.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button fx:id="zero_btn" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="143.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="116.0" prefWidth="175.0" GridPane.rowIndex="4">
+            <Button fx:id="negativeSign_btn" mnemonicParsing="false" prefHeight="116.0" prefWidth="175.0" text="-" GridPane.rowIndex="4">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="156.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Button fx:id="point_btn" mnemonicParsing="false" prefHeight="90.0" prefWidth="156.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font name="Arial Black" size="30.0" />
                </font>
             </Button>
          </children>
          <BorderPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin>
       </GridPane>
    </center>
+   <bottom>
+      <StackPane prefHeight="97.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="resultLabel" alignment="CENTER" graphicTextGap="6.0" prefHeight="115.0" prefWidth="312.0" text="Result" StackPane.alignment="CENTER_LEFT">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </StackPane.margin>
+            </Label>
+            <Label fx:id="inputLabel" alignment="CENTER" graphicTextGap="6.0" prefHeight="97.0" prefWidth="285.0" StackPane.alignment="CENTER_RIGHT">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+   </bottom>
+   <left>
+      <StackPane prefHeight="370.0" prefWidth="310.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <children>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="175.0" prefWidth="337.0">
+                     <children>
+                        <Button fx:id="div_btn" layoutX="128.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="/">
+                           <font>
+                              <Font name="Arial Black" size="30.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="mult_btn" layoutX="218.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="*">
+                           <font>
+                              <Font name="Arial Black" size="30.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="minus_btn" layoutX="128.0" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="-">
+                           <font>
+                              <Font name="Arial Black" size="30.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="add_btn" layoutX="218.0" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="90.0" prefWidth="90.0" text="+">
+                           <font>
+                              <Font name="Arial Black" size="30.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Button fx:id="Caluclate_btn" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="172.0" prefWidth="304.0" text="=" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                           <font>
+                              <Font name="Arial Black" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </StackPane>
+   </left>
 </BorderPane>
