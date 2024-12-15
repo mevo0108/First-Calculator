@@ -36,4 +36,5 @@ public class MainWindowLogic extends Observable {
 	public void clearInput() {
 		inputLabel.setText("");
 	}
+
 }
