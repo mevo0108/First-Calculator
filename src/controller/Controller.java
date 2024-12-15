@@ -32,7 +32,10 @@ public class Controller implements Observer{
 				handleOperation(input);
 			} else if (input.equals("=")) {
 				handleCalculation();
-			} else {
+			} else if (input.equals("DEL")){
+				handleDelete();
+
+			}else {
 				m.appendToInput(input); // Append the clicked number to the input
 				wl.displayInput(m.getCurrentExpression());
 			}
@@ -42,6 +45,12 @@ public class Controller implements Observer{
 			wl.displayInput(m.getCurrentExpression());
 			wl.displayResult(m.getResult());
 		}
+	}
+
+	private void handleDelete() {
+		int length = m.getCurrentExpression().length();
+		String currentExpression = m.getCurrentExpression().substring(0,length-1);
+		wl.displayInput(currentExpression);
 	}
 
 	private void handleOperation(String opp){
@@ -57,4 +66,5 @@ public class Controller implements Observer{
 		m.calculate();
 
 	}
+
 }

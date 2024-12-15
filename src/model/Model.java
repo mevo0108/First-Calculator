@@ -42,7 +42,6 @@ public class Model extends Observable{
 		setChanged();
 		notifyObservers(); // Notify observers about the change in input
 	}
-
 	public double getResult() {
 		return result;
 	}
@@ -60,4 +59,5 @@ public class Model extends Observable{
 	public String getCurrentExpression(){
 		return currentExpression;
 	}
+
 }
